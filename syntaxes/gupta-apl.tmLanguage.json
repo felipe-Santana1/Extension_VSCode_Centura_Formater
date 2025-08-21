@@ -1,0 +1,148 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Gupta APL",
+  "scopeName": "source.gupta-apl",
+  "patterns": [
+    {
+      "include": "#head-directives"
+    },
+    {
+      "include": "#data-blocks"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#types"
+    },
+    {
+      "include": "#variables"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#comments"
+    }
+  ],
+  "repository": {
+    "head-directives": {
+      "patterns": [
+        {
+          "match": "^(\\.head)\\s+(\\d+)\\s+([+-])\\s*(.*)?$",
+          "captures": {
+            "1": {
+              "name": "keyword.control.directive.gupta-apl"
+            },
+            "2": {
+              "name": "constant.numeric.level.gupta-apl"
+            },
+            "3": {
+              "name": "keyword.operator.fold.gupta-apl"
+            },
+            "4": {
+              "name": "entity.name.section.gupta-apl"
+            }
+          }
+        }
+      ]
+    },
+    "data-blocks": {
+      "patterns": [
+        {
+          "name": "keyword.control.data.gupta-apl",
+          "match": "^\\.(data|enddata)\\b.*$"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.gupta-apl",
+          "match": "\\b(Set|Call|Return|Function|Description|Returns|Parameters|Local variables|Actions|Static Variables)\\b"
+        },
+        {
+          "name": "keyword.other.gupta-apl",
+          "match": "\\b(Internal Functions|Named Exceptions|Named Toolbars|Named Menus|Class Definitions)\\b"
+        },
+        {
+          "name": "storage.modifier.gupta-apl",
+          "match": "!__Exported"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "storage.type.gupta-apl",
+          "match": "\\b(Number|Boolean|Window Handle|DT_Number|String)\\b"
+        }
+      ]
+    },
+    "variables": {
+      "patterns": [
+        {
+          "name": "variable.parameter.gupta-apl",
+          "match": "\\bpar_[a-zA-Z_][a-zA-Z0-9_]*\\b"
+        },
+        {
+          "name": "variable.other.gupta-apl",
+          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+        },
+        {
+          "name": "variable.array.gupta-apl",
+          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\[\\*?\\]"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.gupta-apl",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.gupta-apl",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.gupta-apl",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.gupta-apl",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.gupta-apl",
+          "match": "\\b\\d+(\\.\\d+)?\\b"
+        },
+        {
+          "name": "constant.numeric.hex.gupta-apl",
+          "match": "\\b0x[0-9A-Fa-f]+\\b"
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.gupta-apl",
+          "match": "//.*$"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "name": "gupta-apl-support",
+  "displayName": "Gupta APL Language Support",
+  "description": "Fornece suporte para formatação, syntax highlighting e code folding para arquivos .apl do Gupta Team Developer",
+  "version": "1.0.0",
+  "publisher": "felipe-santana",
+  "author": {
+    "name": "Felipe Santana",
+    "url": "https://github.com/felipe-Santana1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felipe-Santana1/Extension_VSCode_Centura_Formater.git"
+  },
+  "bugs": {
+    "url": "https://github.com/felipe-Santana1/Extension_VSCode_Centura_Formater/issues"
+  },
+  "homepage": "https://github.com/felipe-Santana1/Extension_VSCode_Centura_Formater#readme",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Formatters"
+  ],
+  "keywords": [
+    "gupta",
+    "apl",
+    "team developer",
+    "centura",
+    "formatter"
+  ],
+  "activationEvents": [
+    "onLanguage:gupta-apl"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "gupta-apl",
+        "aliases": [
+          "Gupta APL",
+          "gupta-apl"
+        ],
+        "extensions": [
+          ".apl"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "gupta-apl",
+        "scopeName": "source.gupta-apl",
+        "path": "./syntaxes/gupta-apl.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "gupta-apl.formatDocument",
+        "title": "Gupta APL: Formatar Documento"
+      },
+      {
+        "command": "gupta-apl.formatSelection",
+        "title": "Gupta APL: Formatar Seleção"
+      },
+      {
+        "command": "gupta-apl.toggleHeadDirectives",
+        "title": "Gupta APL: Ocultar/Mostrar Diretivas .head"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "resourceExtname == .apl",
+          "command": "gupta-apl.formatDocument",
+          "group": "1_modification@1"
+        },
+        {
+          "when": "resourceExtname == .apl && editorHasSelection",
+          "command": "gupta-apl.formatSelection",
+          "group": "1_modification@2"
+        },
+        {
+          "when": "resourceExtname == .apl",
+          "command": "gupta-apl.toggleHeadDirectives",
+          "group": "1_modification@3"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "gupta-apl.formatDocument",
+          "when": "resourceExtname == .apl"
+        },
+        {
+          "command": "gupta-apl.formatSelection",
+          "when": "resourceExtname == .apl && editorHasSelection"
+        },
+        {
+          "command": "gupta-apl.toggleHeadDirectives",
+          "when": "resourceExtname == .apl"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "gupta-apl.formatDocument",
+        "key": "shift+alt+f",
+        "when": "resourceExtname == .apl"
+      },
+      {
+        "command": "gupta-apl.toggleHeadDirectives",
+        "key": "ctrl+shift+h",
+        "when": "resourceExtname == .apl"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "16.x",
+    "@types/vscode": "^1.74.0",
+    "typescript": "^4.9.4"
+  }
+}
