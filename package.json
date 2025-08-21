@@ -3,20 +3,20 @@
   "displayName": "Gupta APL Language Support",
   "description": "Fornece suporte para formatação, syntax highlighting e code folding para arquivos .apl do Gupta Team Developer",
   "version": "1.0.0",
-  "publisher": "felipe-santana",
+  "publisher": "wendel-miguel",
   "author": {
-    "name": "Felipe Santana",
-    "url": "https://github.com/felipe-Santana1"
+    "name": "Wendel Miguel",
+    "url": "https://github.com/wendel-miguel"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/felipe-Santana1/Extension_VSCode_Centura_Formater.git"
+    "url": "https://github.com/wendel-miguel/Extension_VSCode_Centura_Formater.git"
   },
   "bugs": {
-    "url": "https://github.com/felipe-Santana1/Extension_VSCode_Centura_Formater/issues"
+    "url": "https://github.com/wendel-miguel/Extension_VSCode_Centura_Formater/issues"
   },
-  "homepage": "https://github.com/felipe-Santana1/Extension_VSCode_Centura_Formater#readme",
+  "homepage": "https://github.com/wendel-miguel/Extension_VSCode_Centura_Formater#readme",
   "engines": {
     "vscode": "^1.74.0"
   },
